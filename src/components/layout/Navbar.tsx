@@ -15,30 +15,28 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <div className="flex items-center">
           <a href="/" className="text-2xl font-bold text-primary">
-            BigClasses<span className="text-secondary">.AI</span>
+            BiGe<span className="text-secondary">Brains</span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#courses" className="text-gray-600 hover:text-primary transition-colors">
-            Courses
+          <a href="/" className="text-gray-600 hover:text-primary transition-colors">
+            Home
           </a>
-          <a href="#features" className="text-gray-600 hover:text-primary transition-colors">
-            Features
+          <a href="/about" className="text-gray-600 hover:text-primary transition-colors">
+            About
           </a>
-          <a href="#testimonials" className="text-gray-600 hover:text-primary transition-colors">
-            Testimonials
+          <a href="/solutions" className="text-gray-600 hover:text-primary transition-colors">
+            Solutions
           </a>
-          <a href="#pricing" className="text-gray-600 hover:text-primary transition-colors">
-            Pricing
+          <a href="/insights" className="text-gray-600 hover:text-primary transition-colors">
+            Insights
           </a>
-          <div className="flex items-center space-x-4">
-            <Button variant="outline" className="rounded-full px-6">
-              Log in
-            </Button>
-            <Button className="rounded-full px-6">Sign up</Button>
-          </div>
+          <a href="/contact" className="text-gray-600 hover:text-primary transition-colors">
+            Contact
+          </a>
+          <Button className="rounded-full px-6">Get Started</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -54,39 +52,43 @@ const Navbar = () => {
         <div className="md:hidden bg-white py-4 px-4 shadow-lg">
           <div className="flex flex-col space-y-4">
             <a 
-              href="#courses" 
+              href="/" 
               className="text-gray-600 hover:text-primary transition-colors py-2"
               onClick={toggleMenu}
             >
-              Courses
+              Home
             </a>
             <a 
-              href="#features" 
+              href="/about" 
               className="text-gray-600 hover:text-primary transition-colors py-2"
               onClick={toggleMenu}
             >
-              Features
+              About
             </a>
             <a 
-              href="#testimonials" 
+              href="/solutions" 
               className="text-gray-600 hover:text-primary transition-colors py-2"
               onClick={toggleMenu}
             >
-              Testimonials
+              Solutions
             </a>
             <a 
-              href="#pricing" 
+              href="/insights" 
               className="text-gray-600 hover:text-primary transition-colors py-2"
               onClick={toggleMenu}
             >
-              Pricing
+              Insights
             </a>
-            <div className="flex flex-col space-y-3 pt-3">
-              <Button variant="outline" className="rounded-full">
-                Log in
-              </Button>
-              <Button className="rounded-full">
-                Sign up
+            <a 
+              href="/contact" 
+              className="text-gray-600 hover:text-primary transition-colors py-2"
+              onClick={toggleMenu}
+            >
+              Contact
+            </a>
+            <div className="pt-3">
+              <Button className="rounded-full w-full">
+                Get Started
               </Button>
             </div>
           </div>
