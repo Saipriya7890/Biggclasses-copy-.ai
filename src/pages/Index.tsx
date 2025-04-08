@@ -36,6 +36,19 @@ const Index = () => {
       });
     };
   }, []);
+  
+  // Add favicon
+  useEffect(() => {
+    // Update favicon
+    const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/png';
+    link.rel = 'shortcut icon';
+    link.href = '/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    
+    // Update page title with dynamic content
+    document.title = "BigClasses.AI | Transform Your Learning with AI";
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">

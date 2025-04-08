@@ -16,32 +16,38 @@ const features = [
   {
     icon: <Brain className="h-10 w-10 text-primary" />,
     title: "AI-Powered Learning",
-    description: "Our AI adapts lessons to your pace and learning style, providing personalized guidance along the way."
+    description: "Our AI adapts lessons to your pace and learning style, providing personalized guidance along the way.",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&h=400"
   },
   {
     icon: <MessageSquare className="h-10 w-10 text-primary" />,
     title: "Interactive Discussions",
-    description: "Engage in meaningful conversations with our AI tutors to deepen your understanding of complex topics."
+    description: "Engage in meaningful conversations with our AI tutors to deepen your understanding of complex topics.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&h=400"
   },
   {
     icon: <BarChart3 className="h-10 w-10 text-primary" />,
     title: "Real-time Progress Tracking",
-    description: "Monitor your progress with detailed analytics and actionable insights to improve your learning."
+    description: "Monitor your progress with detailed analytics and actionable insights to improve your learning.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&h=400"
   },
   {
     icon: <Clock className="h-10 w-10 text-primary" />,
     title: "Learn at Your Own Pace",
-    description: "Access course materials 24/7 and learn at the time and pace that works best for you."
+    description: "Access course materials 24/7 and learn at the time and pace that works best for you.",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&h=400"
   },
   {
     icon: <Code className="h-10 w-10 text-primary" />,
     title: "Hands-on Coding Exercises",
-    description: "Practice coding with interactive exercises and receive instant feedback from our code analysis AI."
+    description: "Practice coding with interactive exercises and receive instant feedback from our code analysis AI.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&h=400"
   },
   {
     icon: <Video className="h-10 w-10 text-primary" />,
     title: "HD Video Lectures",
-    description: "Watch high-definition video lectures with transcripts and smart search functionality."
+    description: "Watch high-definition video lectures with transcripts and smart search functionality.",
+    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&h=400"
   }
 ];
 
@@ -70,6 +76,13 @@ const FeaturesSection = () => {
               className="bg-white border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={feature.image}
+                  alt={feature.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <CardContent className="p-6 relative">
                 <div className="mb-4 rounded-full bg-primary/10 p-3 w-fit group-hover:bg-primary/20 transition-colors">
                   {feature.icon}

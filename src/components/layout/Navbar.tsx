@@ -14,8 +14,15 @@ const Navbar = () => {
     <nav className="bg-white py-4 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="/" className="text-2xl font-bold text-primary">
-            BigClasses<span className="text-secondary">.AI</span>
+          <a href="/" className="flex items-center gap-2">
+            <img 
+              src="/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png" 
+              alt="BigClasses.AI Logo" 
+              className="h-10 w-auto"
+            />
+            <span className="text-2xl font-bold text-primary">
+              Big<span className="text-secondary">Classes.AI</span>
+            </span>
           </a>
         </div>
 
