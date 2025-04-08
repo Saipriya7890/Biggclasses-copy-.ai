@@ -3,13 +3,11 @@ import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
-import StatsSection from "@/components/home/StatsSection";
-import SolutionsSection from "@/components/home/SolutionsSection";
+import FeaturesSection from "@/components/home/FeaturesSection";
+import CoursesSection from "@/components/home/CoursesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
-import PartnersSection from "@/components/home/PartnersSection";
+import PricingSection from "@/components/home/PricingSection";
 import CTASection from "@/components/home/CTASection";
-import CEOSection from "@/components/home/CEOSection";
-import ContactForm from "@/components/home/ContactForm";
 
 const Index = () => {
   return (
@@ -17,13 +15,11 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <StatsSection />
-        <SolutionsSection />
+        <FeaturesSection />
+        <CoursesSection />
         <TestimonialsSection />
-        <CEOSection />
-        <PartnersSection />
+        <PricingSection />
         <CTASection />
-        <ContactForm />
       </main>
       <Footer />
     </div>
