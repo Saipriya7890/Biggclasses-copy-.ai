@@ -37,9 +37,6 @@ const Navbar = () => {
           <a href="#testimonials" className="text-gray-600 hover:text-primary transition-colors">
             Testimonials
           </a>
-          <a href="#pricing" className="text-gray-600 hover:text-primary transition-colors">
-            Pricing
-          </a>
           <div className="flex items-center space-x-4">
             <Button variant="outline" className="rounded-full px-6">
               Log in
@@ -80,13 +77,6 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               Testimonials
-            </a>
-            <a 
-              href="#pricing" 
-              className="text-gray-600 hover:text-primary transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              Pricing
             </a>
             <div className="flex flex-col space-y-3 pt-3">
               <Button variant="outline" className="rounded-full">
