@@ -40,7 +40,7 @@ const Index = () => {
   // Add favicon
   useEffect(() => {
     // Update favicon
-    const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    const link = document.querySelector("link[rel*='icon']") as HTMLLinkElement || document.createElement('link');
     link.type = 'image/png';
     link.rel = 'shortcut icon';
     link.href = '/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png';
