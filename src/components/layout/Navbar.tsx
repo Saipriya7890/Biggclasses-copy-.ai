@@ -1,33 +1,17 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
-    <nav className={`py-4 sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+    <nav className="bg-white py-4 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <div className="flex items-center">
           <a href="/" className="flex items-center gap-2">
@@ -36,34 +20,34 @@ const Navbar = () => {
               alt="BigClasses.AI Logo" 
               className="h-10 w-auto"
             />
-            <span className="text-2xl font-bold">
-              Big<span className={`${isScrolled ? 'text-teal-600' : 'text-teal-200'}`}>Classes.AI</span>
+            <span className="text-2xl font-bold text-primary">
+              Big<span className="text-secondary">Classes.AI</span>
             </span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#" className={`hover-underline ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-teal-600 transition-colors`}>
-            Home
-          </a>
-          <a href="#features" className={`hover-underline ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-teal-600 transition-colors`}>
-            Features
-          </a>
-          <a href="#courses" className={`hover-underline ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-teal-600 transition-colors`}>
+          <a href="#courses" className="text-gray-600 hover:text-primary transition-colors">
             Courses
           </a>
-          <a href="#testimonials" className={`hover-underline ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-teal-600 transition-colors`}>
+          <a href="#features" className="text-gray-600 hover:text-primary transition-colors">
+            Features
+          </a>
+          <a href="#testimonials" className="text-gray-600 hover:text-primary transition-colors">
             Testimonials
           </a>
-          <Button className="rounded-md px-6 bg-orange-500 hover:bg-orange-600 text-white">
-            Contact Us
-          </Button>
+          <div className="flex items-center space-x-4">
+            <Button variant="outline" className="rounded-full px-6">
+              Log in
+            </Button>
+            <Button className="rounded-full px-6">Sign up</Button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleMenu} className={isScrolled ? 'text-gray-700' : 'text-white'}>
+          <Button variant="ghost" size="icon" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
         </div>
@@ -74,36 +58,34 @@ const Navbar = () => {
         <div className="md:hidden bg-white py-4 px-4 shadow-lg">
           <div className="flex flex-col space-y-4">
             <a 
-              href="#" 
-              className="text-gray-700 hover:text-teal-600 transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              Home
-            </a>
-            <a 
-              href="#features" 
-              className="text-gray-700 hover:text-teal-600 transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              Features
-            </a>
-            <a 
               href="#courses" 
-              className="text-gray-700 hover:text-teal-600 transition-colors py-2"
+              className="text-gray-600 hover:text-primary transition-colors py-2"
               onClick={toggleMenu}
             >
               Courses
             </a>
             <a 
+              href="#features" 
+              className="text-gray-600 hover:text-primary transition-colors py-2"
+              onClick={toggleMenu}
+            >
+              Features
+            </a>
+            <a 
               href="#testimonials" 
-              className="text-gray-700 hover:text-teal-600 transition-colors py-2"
+              className="text-gray-600 hover:text-primary transition-colors py-2"
               onClick={toggleMenu}
             >
               Testimonials
             </a>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white rounded-md">
-              Contact Us
-            </Button>
+            <div className="flex flex-col space-y-3 pt-3">
+              <Button variant="outline" className="rounded-full">
+                Log in
+              </Button>
+              <Button className="rounded-full">
+                Sign up
+              </Button>
+            </div>
           </div>
         </div>
       )}
