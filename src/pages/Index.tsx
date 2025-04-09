@@ -8,6 +8,7 @@ import CoursesSection from "@/components/home/CoursesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 import ContactSection from "@/components/home/ContactSection";
+import TrainingHighlightsSection from "@/components/home/TrainingHighlightsSection";
 
 const Index = () => {
   // Add scroll reveal effect
@@ -55,6 +56,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
+        <TrainingHighlightsSection />
         <FeaturesSection />
         <CoursesSection />
         <TestimonialsSection />
