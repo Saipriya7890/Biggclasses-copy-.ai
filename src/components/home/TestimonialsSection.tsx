@@ -11,7 +11,7 @@ const testimonials = [
     description: "The AI tutor helped me understand complex algorithms in a way that traditional courses never could. I'm making progress twice as fast with personalized learning that adapts to my pace and learning style.",
     author: "Sarah Johnson",
     role: "Senior Designer at Design Studio",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
+    image: "/lovable-uploads/9e6c2a3a-9688-4e1f-96a4-39912b891c69.png"
   },
   {
     id: 2,
@@ -53,7 +53,7 @@ const TestimonialsSection = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section id="testimonials" className="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-40 h-40">
@@ -81,55 +81,80 @@ const TestimonialsSection = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-left max-w-5xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">What Our Customers <br />Are Saying</h2>
+        <div className="text-center max-w-xl mx-auto mb-12">
+          <h2 className="text-4xl font-bold mb-4">What Our <span className="gradient-text">Students Say</span></h2>
+          <p className="text-gray-600">Discover how our AI-powered courses have transformed learning experiences</p>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <Card className="border-0 shadow-none bg-transparent">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="relative">
-                <div className="relative rounded-lg overflow-hidden">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-2/5">
+              {/* Testimonial navigation */}
+              <div className="space-y-6">
+                {testimonials.map((testimonial, idx) => (
+                  <div 
+                    key={testimonial.id}
+                    className={`p-4 rounded-lg cursor-pointer transition-all duration-300 ${
+                      currentIndex === idx 
+                        ? 'bg-white shadow-lg border-l-4 border-primary' 
+                        : 'hover:bg-white/50'
+                    }`}
+                    onClick={() => setCurrentIndex(idx)}
+                  >
+                    <h3 className={`text-lg font-semibold ${currentIndex === idx ? 'text-primary' : 'text-gray-700'}`}>
+                      {testimonial.author}
+                    </h3>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Navigation buttons for mobile */}
+              <div className="flex justify-center space-x-4 mt-6 md:hidden">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="rounded-full h-10 w-10 border-gray-300"
+                  onClick={prevTestimonial}
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="rounded-full h-10 w-10 border-gray-300"
+                  onClick={nextTestimonial}
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+            
+            <div className="md:w-3/5">
+              <Card className="overflow-hidden border-0 shadow-xl bg-white">
+                <div className="p-6">
+                  <div className="bg-primary/10 p-3 inline-block rounded-full mb-4">
+                    <Quote className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">{currentTestimonial.quote}</h3>
+                  <p className="text-gray-600 mb-8">{currentTestimonial.description}</p>
+                </div>
+                <div className="relative h-64">
                   <img 
                     src={currentTestimonial.image} 
                     alt={currentTestimonial.author} 
-                    className="w-full h-[400px] object-cover"
+                    className="w-full h-full object-cover"
                   />
-                </div>
-                <div className="absolute top-6 right-0 transform translate-x-1/2">
-                  <div className="bg-primary text-white p-4 rounded-full">
-                    <Quote className="h-6 w-6" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                    <div className="absolute bottom-4 left-6">
+                      <h4 className="font-semibold text-lg text-white">{currentTestimonial.author}</h4>
+                      <p className="text-white/80">{currentTestimonial.role}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{currentTestimonial.quote}</h3>
-                <p className="text-gray-600 mb-8">{currentTestimonial.description}</p>
-                <div className="mb-8">
-                  <h4 className="font-semibold text-lg">{currentTestimonial.author}</h4>
-                  <p className="text-gray-500">{currentTestimonial.role}</p>
-                </div>
-                <div className="flex space-x-4">
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="rounded-full h-10 w-10 border-gray-300"
-                    onClick={prevTestimonial}
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="rounded-full h-10 w-10 border-gray-300"
-                    onClick={nextTestimonial}
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </Button>
-                </div>
-              </div>
+              </Card>
             </div>
-          </Card>
+          </div>
         </div>
       </div>
     </section>

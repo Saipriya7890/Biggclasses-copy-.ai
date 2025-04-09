@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,11 +9,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <img 
-                src="/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png" 
-                alt="BigClasses.AI Logo" 
-                className="h-10 w-auto"
-              />
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png" 
+                  alt="BigClasses.AI Logo" 
+                  className="h-10 w-auto brightness-125 contrast-125 mix-blend-lighten"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 mix-blend-overlay rounded-full"></div>
+              </div>
               <h3 className="text-xl font-bold">Big<span className="text-primary">Classes.AI</span></h3>
             </div>
             <p className="text-gray-400 mb-6">
