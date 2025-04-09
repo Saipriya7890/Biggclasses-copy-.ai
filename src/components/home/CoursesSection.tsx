@@ -31,7 +31,7 @@ const courses = [
     id: 3,
     title: "Natural Language Processing",
     description: "Explore how AI understands and generates human language with practical applications.",
-    image: "https://images.unsplash.com/photo-1677442135968-6b7d726a2f2a?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1626397260136-78e4b1e5a0de?q=80&w=2070&auto=format&fit=crop",
     students: "1,580",
     duration: "6 weeks",
     level: "Advanced",
@@ -42,7 +42,7 @@ const courses = [
     id: 4,
     title: "Computer Vision Essentials",
     description: "Learn how to process and analyze visual data using cutting-edge AI techniques.",
-    image: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1545987796-200677ee1011?q=80&w=2070&auto=format&fit=crop",
     students: "1,243",
     duration: "7 weeks",
     level: "Intermediate",
@@ -55,22 +55,22 @@ const CoursesSection = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section id="courses" className="py-24 relative overflow-hidden">
+    <section id="courses" className="py-24 relative overflow-hidden bg-gray-50">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 opacity-30">
-        <div className="absolute top-40 right-10 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-72 h-72 bg-secondary/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-teal-500/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-orange-500/5 rounded-full filter blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div className="mb-6 md:mb-0">
-            <h2 className="mb-4">Featured <span className="gradient-text">Courses</span></h2>
+            <h2 className="mb-4">Featured <span className="text-teal-600">Courses</span></h2>
             <p className="text-lg text-gray-600 max-w-xl">
               Explore our most popular AI and data science courses, designed to help you master the skills that matter.
             </p>
           </div>
-          <Button variant="outline" className="flex items-center group">
+          <Button variant="outline" className="flex items-center group border-teal-500 text-teal-600 hover:bg-teal-50">
             View all courses
             <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
@@ -92,7 +92,7 @@ const CoursesSection = () => {
                   className={`w-full h-full object-cover transition-all duration-700 ${hoveredId === course.id ? 'scale-110' : ''}`}
                 />
                 <div className={`absolute bottom-0 left-0 right-0 p-4 z-20 transform transition-transform duration-300 ${hoveredId === course.id ? 'translate-y-0' : 'translate-y-full'}`}>
-                  <Button className="w-full rounded-md" size="sm">View Course</Button>
+                  <Button className="w-full rounded-md bg-teal-600 hover:bg-teal-700" size="sm">View Course</Button>
                 </div>
               </div>
               <CardContent className="p-5 flex flex-col flex-grow">
@@ -111,7 +111,7 @@ const CoursesSection = () => {
                     </div>
                   </div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
-                    <span className="bg-gradient-to-r from-primary to-secondary bg-[length:0%_2px] hover:bg-[length:100%_2px] bg-no-repeat bg-bottom transition-all duration-500">
+                    <span className="bg-gradient-to-r from-teal-600 to-teal-500 bg-[length:0%_2px] hover:bg-[length:100%_2px] bg-no-repeat bg-bottom transition-all duration-500">
                       {course.title}
                     </span>
                   </h3>
@@ -128,7 +128,7 @@ const CoursesSection = () => {
                     <span>{course.duration}</span>
                   </div>
                 </div>
-                <div className="mt-3 flex items-center text-sm text-primary">
+                <div className="mt-3 flex items-center text-sm text-teal-600">
                   <BookOpen className="h-4 w-4 mr-1" />
                   <span>{course.modules} modules</span>
                 </div>
@@ -138,7 +138,7 @@ const CoursesSection = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <Button className="px-8 group">
+          <Button className="px-8 group bg-teal-600 hover:bg-teal-700">
             Browse all courses
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
