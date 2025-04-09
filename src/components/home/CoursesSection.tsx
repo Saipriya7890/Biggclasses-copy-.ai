@@ -9,7 +9,7 @@ const courses = [
     id: 1,
     title: "Machine Learning Fundamentals",
     description: "Learn the core concepts and algorithms behind machine learning with hands-on projects.",
-    image: "/lovable-uploads/2c6e27c7-f9af-4298-ae7e-f116f9a25aac.png",
+    image: "/lovable-uploads/cb5c6fa2-8150-4eb5-a691-15c39bd5dae0.png",
     students: "2,345",
     duration: "8 weeks",
     level: "Beginner",
@@ -20,7 +20,7 @@ const courses = [
     id: 2,
     title: "Advanced Data Science",
     description: "Dive deeper into statistical analysis, data visualization, and predictive modeling.",
-    image: "/lovable-uploads/98cda2a8-166b-436c-9abb-97efaad8e062.png",
+    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=2070&auto=format&fit=crop",
     students: "1,892",
     duration: "10 weeks",
     level: "Intermediate",
@@ -31,7 +31,7 @@ const courses = [
     id: 3,
     title: "Natural Language Processing",
     description: "Explore how AI understands and generates human language with practical applications.",
-    image: "https://images.unsplash.com/photo-1677442135968-6b7d726a2f2a?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1677442135136-60d46cf0832e?q=80&w=2032&auto=format&fit=crop",
     students: "1,580",
     duration: "6 weeks",
     level: "Advanced",
@@ -42,7 +42,7 @@ const courses = [
     id: 4,
     title: "Computer Vision Essentials",
     description: "Learn how to process and analyze visual data using cutting-edge AI techniques.",
-    image: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1647424217853-332d658aaf19?q=80&w=2070&auto=format&fit=crop",
     students: "1,243",
     duration: "7 weeks",
     level: "Intermediate",
@@ -89,7 +89,7 @@ const CoursesSection = () => {
                 <img 
                   src={course.image} 
                   alt={course.title} 
-                  className={`w-full h-full object-cover transition-all duration-700 ${hoveredId === course.id ? 'scale-110' : ''}`}
+                  className={`w-full h-full object-cover transition-all duration-700 ${hoveredId === course.id && course.id !== 1 ? 'scale-110' : ''}`}
                 />
                 <div className={`absolute bottom-0 left-0 right-0 p-4 z-20 transform transition-transform duration-300 ${hoveredId === course.id ? 'translate-y-0' : 'translate-y-full'}`}>
                   <Button className="w-full rounded-md" size="sm">View Course</Button>

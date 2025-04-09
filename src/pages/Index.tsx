@@ -49,8 +49,18 @@ const Index = () => {
     document.title = "BigClasses.AI | Transform Your Learning with AI";
   }, []);
 
+  // Background patterns for visual interest
+  const backgroundPattern = {
+    backgroundImage: `
+      radial-gradient(circle at 25px 25px, rgba(64, 76, 255, 0.03) 2%, transparent 0%), 
+      radial-gradient(circle at 75px 75px, rgba(255, 64, 128, 0.03) 2%, transparent 0%)
+    `,
+    backgroundSize: '100px 100px',
+    backgroundAttachment: 'fixed'
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-white via-gray-50 to-white" style={backgroundPattern}>
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
