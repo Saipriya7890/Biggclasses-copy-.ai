@@ -20,28 +20,31 @@ const Navbar = () => {
               alt="BigClasses.AI Logo" 
               className="h-10 w-auto"
             />
-            <span className="text-2xl font-bold text-primary">
-              Big<span className="text-secondary">Classes.AI</span>
+            <span className="text-2xl font-bold text-blue-900">
+              Big<span className="text-blue-600">Classes.AI</span>
             </span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#courses" className="text-gray-600 hover:text-primary transition-colors">
+          <a href="#courses" className="text-gray-600 hover:text-blue-600 transition-colors">
             Courses
           </a>
-          <a href="#features" className="text-gray-600 hover:text-primary transition-colors">
-            Features
+          <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">
+            Why Us
           </a>
-          <a href="#testimonials" className="text-gray-600 hover:text-primary transition-colors">
+          <a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors">
             Testimonials
           </a>
+          <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">
+            Contact
+          </a>
           <div className="flex items-center space-x-4">
-            <Button variant="outline" className="rounded-full px-6">
+            <Button variant="outline" className="rounded-md px-6 border-blue-600 text-blue-600 hover:bg-blue-50">
               Log in
             </Button>
-            <Button className="rounded-full px-6">Sign up</Button>
+            <Button className="rounded-md px-6 bg-blue-600 hover:bg-blue-700">Sign up</Button>
           </div>
         </div>
 
@@ -59,30 +62,37 @@ const Navbar = () => {
           <div className="flex flex-col space-y-4">
             <a 
               href="#courses" 
-              className="text-gray-600 hover:text-primary transition-colors py-2"
+              className="text-gray-600 hover:text-blue-600 transition-colors py-2"
               onClick={toggleMenu}
             >
               Courses
             </a>
             <a 
               href="#features" 
-              className="text-gray-600 hover:text-primary transition-colors py-2"
+              className="text-gray-600 hover:text-blue-600 transition-colors py-2"
               onClick={toggleMenu}
             >
-              Features
+              Why Us
             </a>
             <a 
               href="#testimonials" 
-              className="text-gray-600 hover:text-primary transition-colors py-2"
+              className="text-gray-600 hover:text-blue-600 transition-colors py-2"
               onClick={toggleMenu}
             >
               Testimonials
             </a>
+            <a 
+              href="#contact" 
+              className="text-gray-600 hover:text-blue-600 transition-colors py-2"
+              onClick={toggleMenu}
+            >
+              Contact
+            </a>
             <div className="flex flex-col space-y-3 pt-3">
-              <Button variant="outline" className="rounded-full">
+              <Button variant="outline" className="rounded-md border-blue-600 text-blue-600">
                 Log in
               </Button>
-              <Button className="rounded-full">
+              <Button className="rounded-md bg-blue-600 hover:bg-blue-700">
                 Sign up
               </Button>
             </div>

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -6,6 +7,7 @@ import FeaturesSection from "@/components/home/FeaturesSection";
 import CoursesSection from "@/components/home/CoursesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
+import ContactSection from "@/components/home/ContactSection";
 
 const Index = () => {
   // Add scroll reveal effect
@@ -56,6 +58,7 @@ const Index = () => {
         <FeaturesSection />
         <CoursesSection />
         <TestimonialsSection />
+        <ContactSection />
         <CTASection />
       </main>
       <Footer />
