@@ -6,6 +6,7 @@ import HeroSection from "@/components/home/HeroSection";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import CoursesSection from "@/components/home/CoursesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import PricingSection from "@/components/home/PricingSection";
 import CTASection from "@/components/home/CTASection";
 
 const Index = () => {
@@ -39,7 +40,7 @@ const Index = () => {
   // Add favicon
   useEffect(() => {
     // Update favicon
-    const link = document.querySelector("link[rel*='icon']") as HTMLLinkElement || document.createElement('link');
+    const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.type = 'image/png';
     link.rel = 'shortcut icon';
     link.href = '/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png';
@@ -49,24 +50,15 @@ const Index = () => {
     document.title = "BigClasses.AI | Transform Your Learning with AI";
   }, []);
 
-  // Background patterns for visual interest
-  const backgroundPattern = {
-    backgroundImage: `
-      radial-gradient(circle at 25px 25px, rgba(64, 76, 255, 0.03) 2%, transparent 0%), 
-      radial-gradient(circle at 75px 75px, rgba(255, 64, 128, 0.03) 2%, transparent 0%)
-    `,
-    backgroundSize: '100px 100px',
-    backgroundAttachment: 'fixed'
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-white via-gray-50 to-white" style={backgroundPattern}>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
         <FeaturesSection />
         <CoursesSection />
         <TestimonialsSection />
+        <PricingSection />
         <CTASection />
       </main>
       <Footer />
