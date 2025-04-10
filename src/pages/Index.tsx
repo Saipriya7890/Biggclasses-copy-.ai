@@ -7,7 +7,6 @@ import FeaturesSection from "@/components/home/FeaturesSection";
 import CoursesSection from "@/components/home/CoursesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
-import ContactSection from "@/components/home/ContactSection";
 
 const Index = () => {
   // Add scroll reveal effect
@@ -51,14 +50,13 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
         <FeaturesSection />
         <CoursesSection />
         <TestimonialsSection />
-        <ContactSection />
         <CTASection />
       </main>
       <Footer />
