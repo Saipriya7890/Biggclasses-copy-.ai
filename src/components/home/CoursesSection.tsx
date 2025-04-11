@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -56,7 +55,6 @@ const CoursesSection = () => {
 
   return (
     <section id="courses" className="py-24 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute top-40 right-10 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-20 left-20 w-72 h-72 bg-secondary/5 rounded-full filter blur-3xl"></div>
@@ -78,30 +76,45 @@ const CoursesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {courses.map((course) => (
-            <Card 
-              key={course.id} 
-              className="overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+            <Card
+              key={course.id}
+              className={`overflow-hidden border border-gray-200 transition-all duration-500 flex flex-col h-full transform ${
+                hoveredId === course.id ? "shadow-2xl scale-105" : "shadow-md"
+              }`}
               onMouseEnter={() => setHoveredId(course.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
               <div className="relative h-52 overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 transition-opacity duration-300 ${hoveredId === course.id ? 'opacity-100' : ''}`}></div>
-                <img 
-                  src={course.image} 
-                  alt={course.title} 
-                  className={`w-full h-full object-cover transition-all duration-700 ${hoveredId === course.id ? 'scale-110' : ''}`}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 transition-opacity duration-300 ${
+                    hoveredId === course.id ? "opacity-100" : ""
+                  }`}
+                ></div>
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className={`w-full h-full object-cover transition-transform duration-700 ${
+                    hoveredId === course.id ? "scale-110" : ""
+                  }`}
                 />
-                <div className={`absolute bottom-0 left-0 right-0 p-4 z-20 transform transition-transform duration-300 ${hoveredId === course.id ? 'translate-y-0' : 'translate-y-full'}`}>
+                <div
+                  className={`absolute bottom-0 left-0 right-0 p-4 z-20 transform transition-transform duration-300 ${
+                    hoveredId === course.id ? "translate-y-0" : "translate-y-full"
+                  }`}
+                >
                   <Button className="w-full rounded-md" size="sm">View Course</Button>
                 </div>
               </div>
+
               <CardContent className="p-5 flex flex-col flex-grow">
                 <div className="flex-grow">
                   <div className="flex items-center justify-between mb-2">
                     <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
-                      course.level === "Beginner" ? "bg-green-100 text-green-800" :
-                      course.level === "Intermediate" ? "bg-blue-100 text-blue-800" :
-                      "bg-purple-100 text-purple-800"
+                      course.level === "Beginner"
+                        ? "bg-green-100 text-green-800"
+                        : course.level === "Intermediate"
+                        ? "bg-blue-100 text-blue-800"
+                        : "bg-purple-100 text-purple-800"
                     }`}>
                       {course.level}
                     </span>
@@ -117,7 +130,7 @@ const CoursesSection = () => {
                   </h3>
                   <p className="text-gray-600 text-sm mb-4">{course.description}</p>
                 </div>
-                
+
                 <div className="flex items-center justify-between text-sm text-gray-500 mt-4 pt-4 border-t border-gray-100">
                   <div className="flex items-center">
                     <Users className="h-4 w-4 mr-1" />
@@ -136,7 +149,7 @@ const CoursesSection = () => {
             </Card>
           ))}
         </div>
-        
+
         <div className="mt-12 text-center">
           <Button className="px-8 group">
             Browse all courses

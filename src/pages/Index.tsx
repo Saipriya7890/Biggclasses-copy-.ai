@@ -7,6 +7,7 @@ import CoursesSection from "@/components/home/CoursesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 import Welcome from "@/components/home/welcome";
+import PlacementAssistance from "@/components/home/PlacementAssistance";
 
 const Index = () => {
   // Add scroll reveal effect
@@ -58,6 +59,7 @@ const Index = () => {
         <FeaturesSection />
         <CoursesSection />
         <TestimonialsSection />
+        <PlacementAssistance />
         <CTASection />
       </main>
       <Footer />
