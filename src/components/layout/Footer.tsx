@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,7 @@ const Footer = () => {
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"
             className="relative block w-full h-[60px] rotate-180">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" 
-            className="fill-gray-50"></path>
+              className="fill-gray-50"></path>
           </svg>
         </div>
 
@@ -21,14 +20,13 @@ const Footer = () => {
         <div className="px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="mb-6">
-              {/* Blended logo */}
+              {/* Updated logo path */}
               <div className="flex items-center gap-3 bg-gray-800/50 backdrop-blur-sm p-3 rounded-lg inline-block">
                 <img 
-                  src="/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png" 
+                  src="\lovable-uploads\Big_Classes_LOGO-removebg-preview.png" 
                   alt="BigClasses.AI Logo" 
                   className="h-10 w-auto"
                 />
-                <h3 className="text-xl font-bold">Big<span className="gradient-text">Classes.AI</span></h3>
               </div>
             </div>
             <p className="text-gray-400 mb-6">
@@ -49,37 +47,21 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-bold text-xl mb-6 relative before:content-[''] before:absolute before:w-12 before:h-1 before:-bottom-2 before:bg-primary">Quick Links</h4>
             <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ArrowRight className="mr-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all" />
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#courses" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ArrowRight className="mr-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all" />
-                  Courses
-                </a>
-              </li>
-              <li>
-                <a href="#features" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ArrowRight className="mr-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all" />
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ArrowRight className="mr-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all" />
-                  Testimonials
-                </a>
-              </li>
+              {["Home", "Courses", "Features", "Testimonials"].map((text, idx) => (
+                <li key={idx}>
+                  <a href={`#${text.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                    <ArrowRight className="mr-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all" />
+                    {text}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-bold text-xl mb-6 relative before:content-[''] before:absolute before:w-12 before:h-1 before:-bottom-2 before:bg-primary">Contact Us</h4>
             <ul className="space-y-4">
@@ -97,7 +79,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-bold text-xl mb-6 relative before:content-[''] before:absolute before:w-12 before:h-1 before:-bottom-2 before:bg-primary">Subscribe</h4>
             <p className="text-gray-400 mb-4">Stay updated with the latest courses and AI learning tips.</p>
@@ -113,7 +95,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-8 py-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} BigClasses.AI. All rights reserved.</p>
         </div>

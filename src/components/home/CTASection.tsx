@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Play } from "lucide-react";
@@ -38,11 +37,13 @@ const CTASection = () => {
                   
                   <Button 
                     size="lg" 
-                    variant="outline" 
-                    className="border-white text-white hover:bg-white/10 rounded-full px-8 group"
+                    className="bg-white text-primary hover:bg-white/90 rounded-full px-8 group relative overflow-hidden shadow-lg hover:shadow-xl transition-all"
                   >
-                    <Play className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                    Watch demo
+                    <span className="relative z-10 flex items-center">
+                      <Play className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                      Watch demo
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-white via-white to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   </Button>
                 </div>
               </div>

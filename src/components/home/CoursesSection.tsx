@@ -1,53 +1,65 @@
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Users, Clock, Star, BookOpen, ArrowRight } from "lucide-react";
+import {
+  Users,
+  Clock,
+  Star,
+  BookOpen,
+} from "lucide-react";
 
 const courses = [
   {
     id: 1,
     title: "Machine Learning Fundamentals",
-    description: "Learn the core concepts and algorithms behind machine learning with hands-on projects.",
-    image: "/lovable-uploads/2c6e27c7-f9af-4298-ae7e-f116f9a25aac.png",
+    description:
+      "Learn the core concepts and algorithms behind machine learning with hands-on projects.",
+    image: "https://media.istockphoto.com/id/1387900612/photo/automation-data-analytic-with-robot-and-digital-visualization-for-big-data-scientist.jpg?s=612x612&w=0&k=20&c=50maOJU6CpVC55mYnUqtff2aiaJZ7KlmMn4jNhWD_eo=",
     students: "2,345",
     duration: "8 weeks",
     level: "Beginner",
     rating: 4.9,
-    modules: 12
+    modules: 12,
   },
   {
     id: 2,
     title: "Advanced Data Science",
-    description: "Dive deeper into statistical analysis, data visualization, and predictive modeling.",
-    image: "/lovable-uploads/98cda2a8-166b-436c-9abb-97efaad8e062.png",
+    description:
+      "Dive deeper into statistical analysis, data visualization, and predictive modeling.",
+    image:
+      "https://miro.medium.com/v2/resize:fit:1400/1*zZJTqB_1dHDJLaDyY6BQ_w.png",
     students: "1,892",
     duration: "10 weeks",
     level: "Intermediate",
     rating: 4.7,
-    modules: 15
+    modules: 15,
   },
   {
     id: 3,
     title: "Natural Language Processing",
-    description: "Explore how AI understands and generates human language with practical applications.",
-    image: "https://images.unsplash.com/photo-1677442135968-6b7d726a2f2a?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "Explore how AI understands and generates human language with practical applications.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdkOmnl8E3pqAXPlC50KzEHpu6plXsEQ6ZHA&s",
     students: "1,580",
     duration: "6 weeks",
     level: "Advanced",
     rating: 4.8,
-    modules: 9
+    modules: 9,
   },
   {
     id: 4,
     title: "Computer Vision Essentials",
-    description: "Learn how to process and analyze visual data using cutting-edge AI techniques.",
-    image: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "Learn how to process and analyze visual data using cutting-edge AI techniques.",
+    image:
+      "https://www.proglint.com/static/media/blogDetailImg12.93ecbef0e071df104b38.jpg",
     students: "1,243",
     duration: "7 weeks",
     level: "Intermediate",
     rating: 4.6,
-    modules: 10
-  }
+    modules: 10,
+  },
 ];
 
 const CoursesSection = () => {
@@ -63,14 +75,16 @@ const CoursesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div className="mb-6 md:mb-0">
-            <h2 className="mb-4">Featured <span className="gradient-text">Courses</span></h2>
+            <h2 className="mb-4">
+              Featured <span className="gradient-text">Courses</span>
+            </h2>
             <p className="text-lg text-gray-600 max-w-xl">
-              Explore our most popular AI and data science courses, designed to help you master the skills that matter.
+              Explore our most popular AI and data science courses, designed to
+              help you master the skills that matter.
             </p>
           </div>
           <Button variant="outline" className="flex items-center group">
             View all courses
-            <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
 
@@ -99,28 +113,36 @@ const CoursesSection = () => {
                 />
                 <div
                   className={`absolute bottom-0 left-0 right-0 p-4 z-20 transform transition-transform duration-300 ${
-                    hoveredId === course.id ? "translate-y-0" : "translate-y-full"
+                    hoveredId === course.id
+                      ? "translate-y-0"
+                      : "translate-y-full"
                   }`}
                 >
-                  <Button className="w-full rounded-md" size="sm">View Course</Button>
+                  <Button className="w-full rounded-md" size="sm">
+                    View Course
+                  </Button>
                 </div>
               </div>
 
               <CardContent className="p-5 flex flex-col flex-grow">
                 <div className="flex-grow">
                   <div className="flex items-center justify-between mb-2">
-                    <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
-                      course.level === "Beginner"
-                        ? "bg-green-100 text-green-800"
-                        : course.level === "Intermediate"
-                        ? "bg-blue-100 text-blue-800"
-                        : "bg-purple-100 text-purple-800"
-                    }`}>
+                    <span
+                      className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                        course.level === "Beginner"
+                          ? "bg-green-100 text-green-800"
+                          : course.level === "Intermediate"
+                          ? "bg-blue-100 text-blue-800"
+                          : "bg-purple-100 text-purple-800"
+                      }`}
+                    >
                       {course.level}
                     </span>
                     <div className="flex items-center">
                       <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                      <span className="text-sm font-medium ml-1">{course.rating}</span>
+                      <span className="text-sm font-medium ml-1">
+                        {course.rating}
+                      </span>
                     </div>
                   </div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
@@ -128,7 +150,9 @@ const CoursesSection = () => {
                       {course.title}
                     </span>
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4">{course.description}</p>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {course.description}
+                  </p>
                 </div>
 
                 <div className="flex items-center justify-between text-sm text-gray-500 mt-4 pt-4 border-t border-gray-100">
@@ -150,10 +174,12 @@ const CoursesSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Button className="px-8 group">
-            Browse all courses
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+        {/* Centered Contact Advisor Button */}
+        <div className="mt-12 flex justify-center">
+          <Button
+            className="border border-black text-black font-semibold shadow-md rounded-lg px-6 py-2 transition-all duration-300 bg-white hover:bg-blue-600 hover:text-white hover:border-transparent flex items-center justify-center gap-2"
+          >
+            View all courses
           </Button>
         </div>
       </div>

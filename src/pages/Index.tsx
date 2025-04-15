@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -13,41 +12,44 @@ import PlacementAssistance from "@/components/home/PlacementAssistance";
 const Index = () => {
   // Add scroll reveal effect
   useEffect(() => {
-    const sections = document.querySelectorAll('section');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    sections.forEach(section => {
-      if (!section.classList.contains('animate-fade-in')) {
-        section.style.opacity = '0';
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => {
+      if (!section.classList.contains("animate-fade-in")) {
+        section.style.opacity = "0";
         observer.observe(section);
       }
     });
-    
+
     return () => {
-      sections.forEach(section => {
+      sections.forEach((section) => {
         observer.unobserve(section);
       });
     };
   }, []);
-  
+
   // Add favicon
   useEffect(() => {
-    // Update favicon
-    const link = document.querySelector("link[rel*='icon']") as HTMLLinkElement || document.createElement('link');
-    link.type = 'image/png';
-    link.rel = 'shortcut icon';
-    link.href = '/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png';
-    document.getElementsByTagName('head')[0].appendChild(link);
-    
-    // Update page title with dynamic content
+    const link =
+      (document.querySelector("link[rel*='icon']") as HTMLLinkElement) ||
+      document.createElement("link");
+    link.type = "image/png";
+    link.rel = "shortcut icon";
+    link.href = "/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png";
+    document.getElementsByTagName("head")[0].appendChild(link);
+
     document.title = "BigClasses.AI | Transform Your Learning with AI";
   }, []);
 

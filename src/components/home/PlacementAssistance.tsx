@@ -29,7 +29,7 @@ const PlacementAssistance = () => {
             <ListItem text="2,00,000 career transition across the globe." />
             <ListItem text="Get Job support from our World-class trainers as per your needs by paying hourly, Weekly and Monthly." />
           </ul>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
+          <Button className="border border-black text-black font-semibold shadow-md rounded-lg px-6 py-2 transition-all duration-300 bg-white hover:bg-blue-600 hover:text-white hover:border-transparent">
             Get Job Support
           </Button>
         </div>
