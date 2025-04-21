@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    setIsLoggedIn(!!token);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,6 +23,14 @@ const Navbar = () => {
       section.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("userId");
+    setIsLoggedIn(false);
+    navigate("/#");
   };
 
   return (
@@ -59,12 +73,17 @@ const Navbar = () => {
               </svg>
             </a>
             <div className="absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md border border-gray-100 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Artificial Intelligence</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Generative AI Training</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Data Science & AI Online Training</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Full Stack Data Analytics</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Python for AI</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">MLOps Training</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Python Programming</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Machine Learning</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Deep Learning</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">NLP</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Generative AI</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">LangChain</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">LangGraph</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">MLOps</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">LLMOps</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Agents</a>
+              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Ethics in AI and Scaling AI systems</a>
             </div>
           </div>
 
@@ -99,12 +118,22 @@ const Navbar = () => {
 
         {/* Right Auth Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" className="rounded-full px-6" onClick={() => navigate("/login")}>
-            Log in
-          </Button>
-          <Button className="rounded-full px-6" onClick={() => navigate("/signup")}>
-            Sign up
-          </Button>
+          {isLoggedIn ? (
+            <div className="flex items-center space-x-4">
+              <Button variant="outline" className="rounded-full px-6" onClick={handleLogout}>
+                Sign out
+              </Button>
+            </div>
+          ) : (
+            <>
+              <Button variant="outline" className="rounded-full px-6" onClick={() => navigate("/login")}>
+                Log in
+              </Button>
+              <Button className="rounded-full px-6" onClick={() => navigate("/signup")}>
+                Sign up
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -147,12 +176,29 @@ const Navbar = () => {
               Testimonials
             </a>
             <div className="flex flex-col space-y-3 pt-3">
-              <Button variant="outline" className="rounded-full w-full" onClick={() => { toggleMenu(); navigate("/login"); }}>
-                Log in
-              </Button>
-              <Button className="rounded-full w-full" onClick={() => { toggleMenu(); navigate("/signup"); }}>
-                Sign up
-              </Button>
+              {isLoggedIn ? (
+                <>
+                  <div className="flex items-center space-x-4">
+                    <img
+                      src="https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff"
+                      alt="User Avatar"
+                      className="h-10 w-10 rounded-full"
+                    />
+                  </div>
+                  <Button className="rounded-full w-full" onClick={() => { toggleMenu(); handleLogout(); }}>
+                    Sign out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="outline" className="rounded-full w-full" onClick={() => { toggleMenu(); navigate("/login"); }}>
+                    Log in
+                  </Button>
+                  <Button className="rounded-full w-full" onClick={() => { toggleMenu(); navigate("/signup"); }}>
+                    Sign up
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>

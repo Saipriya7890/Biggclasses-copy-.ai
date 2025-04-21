@@ -2,23 +2,50 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle sign-up logic here (e.g., API call)
-    console.log("Sign up form submitted:", formData);
+    setError("");
+    setSuccess("");
+
+    try {
+      console.log("Submitting form data:", formData); // Debugging log
+      const response = await axios.post("http://localhost:8000/api/users/signup/", {
+        full_name: formData.name,  // Changed 'name' to 'full_name'
+        email: formData.email,
+        password: formData.password,
+      });
+
+      console.log("Signup successful:", response.data);
+      setSuccess("Account created successfully!");
+      navigate("/login");
+    } catch (err: any) {
+      console.error("Signup error:", err);
+      if (err.response) {
+        console.error("Backend response:", err.response.data); // Log backend error response
+        setError(err.response.data.error || "Something went wrong during signup.");
+      } else {
+        setError("Unable to connect to the server. Please try again later.");
+      }
+    }
   };
 
   return (
@@ -64,6 +91,10 @@ const Signup = () => {
           </div>
           <Button type="submit" className="w-full rounded-full">Sign Up</Button>
         </form>
+
+        {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+        {success && <p className="text-green-600 text-center mt-4">{success}</p>}
+
         <p className="mt-4 text-center text-sm text-gray-600">
           Already have an account?{" "}
           <Link to="/login" className="text-primary hover:underline">
