@@ -11,7 +11,7 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: "",
+    phone: "", // Updated field
   });
 
   const [error, setError] = useState("");
@@ -31,17 +31,17 @@ const Signup = () => {
       const response = await axios.post("http://localhost:8000/api/users/signup/", {
         full_name: formData.name,  // Changed 'name' to 'full_name'
         email: formData.email,
-        password: formData.password,
+        phone: formData.phone, // Updated field
       });
 
       console.log("Signup successful:", response.data);
-      setSuccess("Account created successfully!");
-      navigate("/login");
+      setSuccess("Enrollment successful!");
+      navigate("/");
     } catch (err: any) {
       console.error("Signup error:", err);
       if (err.response) {
         console.error("Backend response:", err.response.data); // Log backend error response
-        setError(err.response.data.error || "Something went wrong during signup.");
+        setError(err.response.data.error || "Something went wrong during enrollment.");
       } else {
         setError("Unable to connect to the server. Please try again later.");
       }
@@ -51,7 +51,7 @@ const Signup = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center">Create an account</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Enroll Now</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <Label htmlFor="name">Full Name</Label>
@@ -78,29 +78,25 @@ const Signup = () => {
             />
           </div>
           <div>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="phone">Phone Number</Label>
             <Input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="********"
-              value={formData.password}
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="123-456-7890"
+              value={formData.phone}
               onChange={handleChange}
               required
             />
           </div>
-          <Button type="submit" className="w-full rounded-full">Sign Up</Button>
+          <Button type="submit" className="w-full rounded-full bg-blue-500 text-white hover:bg-blue-600">
+            Enroll Now
+          </Button>
         </form>
 
         {error && <p className="text-red-500 text-center mt-4">{error}</p>}
         {success && <p className="text-green-600 text-center mt-4">{success}</p>}
-
-        <p className="mt-4 text-center text-sm text-gray-600">
-          Already have an account?{" "}
-          <Link to="/login" className="text-primary hover:underline">
-            Log in
-          </Link>
-        </p>
+        
       </div>
     </div>
   );

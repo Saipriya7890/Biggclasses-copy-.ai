@@ -1,4 +1,3 @@
-
 import React from "react";
 import { 
   Brain, 
@@ -89,11 +88,6 @@ const FeaturesSection = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
                 <p className="text-gray-600 mb-6">{feature.description}</p>
-                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                  <Button variant="ghost" size="sm" className="text-primary p-0 h-auto">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </Button>
-                </div>
               </CardContent>
             </Card>
           ))}

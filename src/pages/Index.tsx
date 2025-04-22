@@ -40,27 +40,14 @@ const Index = () => {
     };
   }, []);
 
-  // Add favicon
-  useEffect(() => {
-    const link =
-      (document.querySelector("link[rel*='icon']") as HTMLLinkElement) ||
-      document.createElement("link");
-    link.type = "image/png";
-    link.rel = "shortcut icon";
-    link.href = "/lovable-uploads/88d0f792-1f12-4f5e-9665-edc435ac38fa.png";
-    document.getElementsByTagName("head")[0].appendChild(link);
-
-    document.title = "BigClasses.AI | Transform Your Learning with AI";
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
         <Welcome />
-        <FeaturesSection />
         <CoursesSection />
+        <FeaturesSection />
         <TestimonialsSection />
         <PlacementAssistance />
         <CTASection />

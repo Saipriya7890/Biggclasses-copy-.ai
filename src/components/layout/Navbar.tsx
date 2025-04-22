@@ -38,19 +38,28 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link to="/" className="flex items-center gap-2">
+          <button
+            onClick={() => {
+              navigate("/#");
+              setTimeout(() => handleScrollTo("hero"), 0); // Ensure scrolling after navigation
+            }}
+            className="flex items-center gap-2"
+          >
             <img
               src="\lovable-uploads\Big_Classes_LOGO.png"
               alt="BigClasses.AI Logo"
               className="h-12 w-auto"
             />
-          </Link>
+          </button>
         </div>
 
         {/* Center Nav Links */}
         <div className="hidden md:flex justify-center flex-1 items-center space-x-8">
           <button
-            onClick={() => handleScrollTo("home")}
+            onClick={() => {
+              navigate("/#");
+              setTimeout(() => handleScrollTo("hero"), 0); // Ensure scrolling after navigation
+            }}
             className="text-black hover:text-blue-500 transition-colors"
           >
             Home
@@ -73,17 +82,72 @@ const Navbar = () => {
               </svg>
             </a>
             <div className="absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md border border-gray-100 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Python Programming</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Machine Learning</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Deep Learning</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">NLP</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Generative AI</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">LangChain</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">LangGraph</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">MLOps</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">LLMOps</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Agents</a>
-              <a href="#" className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800">Ethics in AI and Scaling AI systems</a>
+              <a
+                href="/course-details/"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                Python Programming
+              </a>
+              <a
+                href="/course-details?course=machine-learning"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                Machine Learning
+              </a>
+              <a
+                href="/course-details?course=deep-learning"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                Deep Learning
+              </a>
+              <a
+                href="/course-details?course=nlp"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                NLP
+              </a>
+              <a
+                href="/course-details?course=generative-ai"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                Generative AI
+              </a>
+              <a
+                href="/course-details?course=langchain"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                LangChain
+              </a>
+              <a
+                href="/course-details?course=langgraph"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                LangGraph
+              </a>
+              <a
+                href="/course-details?course=mlops"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                MLOps
+              </a>
+              <a
+                href="/course-details?course=llmops"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                LLMOps
+              </a>
+              <a
+                href="/course-details?course=agents"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                Agents
+              </a>
+              <a
+                href="/course-details?course=ethics-ai-scaling"
+                className="block px-6 py-3 hover:bg-gray-100 text-sm text-gray-800"
+              >
+                Ethics in AI and Scaling AI systems
+              </a>
             </div>
           </div>
 
@@ -126,11 +190,11 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Button variant="outline" className="rounded-full px-6" onClick={() => navigate("/login")}>
-                Log in
-              </Button>
-              <Button className="rounded-full px-6" onClick={() => navigate("/signup")}>
-                Sign up
+              <Button
+                className="rounded-full px-6 bg-blue-500 text-white hover:bg-blue-600"
+                onClick={() => navigate("/signup")}
+              >
+                Enroll Now
               </Button>
             </>
           )}
@@ -185,17 +249,26 @@ const Navbar = () => {
                       className="h-10 w-10 rounded-full"
                     />
                   </div>
-                  <Button className="rounded-full w-full" onClick={() => { toggleMenu(); handleLogout(); }}>
+                  <Button
+                    className="rounded-full w-full"
+                    onClick={() => {
+                      toggleMenu();
+                      handleLogout();
+                    }}
+                  >
                     Sign out
                   </Button>
                 </>
               ) : (
                 <>
-                  <Button variant="outline" className="rounded-full w-full" onClick={() => { toggleMenu(); navigate("/login"); }}>
-                    Log in
-                  </Button>
-                  <Button className="rounded-full w-full" onClick={() => { toggleMenu(); navigate("/signup"); }}>
-                    Sign up
+                  <Button
+                    className="rounded-full w-full bg-blue-500 text-white hover:bg-blue-600"
+                    onClick={() => {
+                      toggleMenu();
+                      navigate("/signup");
+                    }}
+                  >
+                    Enroll Now
                   </Button>
                 </>
               )}
